@@ -1,0 +1,63 @@
+__GENERATED_DATE__
+
+using C = __ROOT_NAMESPACE__.Database.Collection;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+
+namespace __ROOT_NAMESPACE__.Database
+{
+	public class Collections
+	{
+		private Dictionary<Type, Dictionary<int, Element>> _dic;
+		private Dictionary<int, Type> _dicTypes;
+
+		public Collections()
+		{
+			_dic = new Dictionary<Type, Dictionary<int, Element>>();
+			_dicTypes = new Dictionary<int, Type>();
+
+__COLLECTIONS_ADD__
+__T_ADD__<_dic.Add(typeof(C.__ELEMENT_NAME__), new Dictionary<int, Element>());>__T_ADD__
+		}
+
+		public T Get<T>(int id) where T : Element
+		{
+			return (T)_dic[typeof(T)][id];
+		}
+		public Type Get(int id)
+		{
+			return _dicTypes[id];
+		}
+		public Element Get(Type type, int id)
+		{
+			return _dic[type][id];
+		}
+		public Dictionary<int, T> Get<T>() where T : Element
+		{
+			return _dic[typeof(T)].ToDictionary(x => x.Key, x => x.Value as T);
+		}
+
+		internal void Read(BinaryReader binary)
+		{
+			int count;
+			
+__COLLECTIONS_READ__
+__T_READ__<_dicTypes.Add(binary.ReadInt32(), typeof(C.__ELEMENT_NAME__));
+			count = binary.ReadInt32();
+			for (int i = 0; i < count; i++)
+			{
+				C.__ELEMENT_NAME__ element = C.__ELEMENT_NAME__.Read(binary, this);
+				_dic[typeof(C.__ELEMENT_NAME__)].Add(element.id, element);
+			}
+			>__T_READ__
+		}
+
+		internal void Clear()
+		{
+			_dic.Clear();
+			_dicTypes.Clear();
+		}
+	}
+}

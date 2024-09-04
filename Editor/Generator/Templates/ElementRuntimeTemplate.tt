@@ -1,0 +1,27 @@
+__CREATED_DATE__
+
+using System.IO;
+
+namespace __ROOT_NAMESPACE__.Database.Collection
+{
+	public class __ELEMENT_NAME__ : Element
+	{
+		//__FIELDS__ begin
+		//...
+		//__FIELDS__ end
+		
+		internal static __ELEMENT_NAME__ Read(BinaryReader binary, Collections collections)
+		{
+			//__READ_MAIN_FIELDS__ begin
+			__ELEMENT_NAME__ result = new __ELEMENT_NAME__();
+			Read(binary, result);
+			//__READ_MAIN_FIELDS__ end
+
+			//__READ_FIELDS__ begin
+			//...
+			//__READ_FIELDS__ end
+			
+			return result;
+		}
+	}
+}

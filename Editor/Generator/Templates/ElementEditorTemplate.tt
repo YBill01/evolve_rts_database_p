@@ -1,0 +1,37 @@
+__CREATED_DATE__
+
+using System;
+using System.IO;
+
+namespace __ROOT_NAMESPACE__.Editor.Database.Collection
+{
+	[Serializable]
+	public class __ELEMENT_NAME__ : Element
+	{
+		//__FIELDS__ begin
+		//...
+		//__FIELDS__ end
+		
+		internal override void ApplyDefault()
+		{
+			//__MAIN_FIELDS_SET_DEFAULT__ begin
+			base.ApplyDefault();
+			//__MAIN_FIELDS_SET_DEFAULT__ end
+
+			//__FIELDS_SET_DEFAULT__ begin
+			//...
+			//__FIELDS_SET_DEFAULT__ end
+		}
+
+		internal override void Write(BinaryWriter binary)
+		{
+			//__WRITE_MAIN_FIELDS__ begin
+			base.Write(binary);
+			//__WRITE_MAIN_FIELDS__ end
+
+			//__WRITE_FIELDS__ begin
+			//...
+			//__WRITE_FIELDS__ end
+		}
+	}
+}

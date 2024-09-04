@@ -1,0 +1,5 @@
+## Auto CRLF line endings ##
+* text=auto
+
+## Unity ##
+*.cs diff=csharp text

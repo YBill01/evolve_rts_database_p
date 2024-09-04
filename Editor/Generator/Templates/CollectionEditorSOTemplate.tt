@@ -1,0 +1,9 @@
+__CREATED_DATE__
+
+namespace __ROOT_NAMESPACE__.Editor.Database.Collection
+{
+	public class __COLLECTION_NAME__ : Collection<__ELEMENT_NAME__>
+	{
+		
+	}
+}

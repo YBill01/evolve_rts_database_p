@@ -1,0 +1,13 @@
+{
+  "name": "com.ybgames.evolve_rts.database",
+  "version": "1.0.0",
+  "displayName": "EvolveRTS Database",
+  "description": "...",
+  "keywords": [
+	"EvolveRTS",
+	"Database"
+  ],
+  "author": {
+    "name": "CN"
+  }
+}
